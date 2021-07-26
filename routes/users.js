@@ -39,7 +39,7 @@ let sendmail = async (a) => {
         from: "yourdetail90@gmail.com",
         subject: "Reset you account by clicking on the link",
         to: a.email,
-        html: `<a href="http://localhost:5000/users/resetreq/${a.id}" target="_blank">click to reset<a>`
+        html: `<a href="https://minifylongurl.herokuapp.com/users/resetreq/${a.id}" target="_blank">click to reset<a>`
       }
 
 
@@ -52,7 +52,7 @@ let sendmail = async (a) => {
         to: a,
         subject: "hii hello and we are glad you are here",
         text: "Greetings click on the link to activate your account",
-        html: `<a href="http://localhost:5000/users/activate/${a}" target="_blank">click to activate<a>`
+        html: `<a href="https://minifylongurl.herokuapp.com/users/activate/${a}" target="_blank">click to activate<a>`
       }
 
 
@@ -141,7 +141,7 @@ router.get('/activate/:usermail', async function (req, res) {
     await mongoose.disconnect()
 
 
-    res.redirect("http://localhost:3000/login")
+    res.redirect("https://minfyurl.netlify.app/login")
   }
   catch (err) {
    
@@ -245,7 +245,7 @@ router.get("/resetreq/:randstr", async (req, res) => {
     let user = await userval.findOne({ resetid: { $eq: req.params.randstr } })
 
     if (user) {
-      res.redirect("https://loginflow.netlify.app/resetpassword")
+      res.redirect("https://minfyurl.netlify.app//resetpassword")
 
       await mongoose.disconnect()
 
